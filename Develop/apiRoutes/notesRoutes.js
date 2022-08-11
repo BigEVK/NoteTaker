@@ -34,11 +34,16 @@ router.post('/notes', (req, res) => {
     //     console.log(data.length);
     //     res.json(JSON.parse(data));
     // })
-    fs.writeFile('./data.notes.json', 'utf8', function(err, data) {
-        res.json(JSON.stringify(data));
+    console.log(req.body);
+    const note = {
+        title: req.body.title,
+        text: req.body.text
+    }
+    fs.writeFile('./db/db.json', JSON.stringify(note), function(err) {
         if (err)
         console.log(err);
         console.log('Your note was successfully added');
+        res.json('Your note was added');
     } )
 });
 
