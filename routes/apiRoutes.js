@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const { response } = require("express");
 const fs = require("fs");
 const { notes } = require("../db/db.json");
 
@@ -52,5 +53,41 @@ router.post("/notes", (req, res) => {
 
   console.log(req.body);
 });
+
+
+// router.delete("/:id", (req, res) => {
+//   var deleteNote = [];
+//   fs.readFile("./db/db.json", "utf8", function (err, data) {
+//     // console.log(data.length);
+//     data = JSON.parse(data);
+//     console.log(data);
+//     // res.json(JSON.parse(data));
+//     for (var i = 0; i < data.length; i++) {
+//       deleteNote.push(data[i]);
+//     }
+//     console.log(deleteNote);
+//     const note = {
+//       title: req.body.title,
+//       text: req.body.text,
+//     };
+//     deleteNote.push(note)
+//     fs.writeFile("./db/db.json", JSON.stringify(deleteNote), function (err) {
+//       if (err) console.log(err);
+//       console.log("Your note was successfully deleted");
+//       res.json("Your note was deleted");
+//     });
+//   });
+
+//   // ---------------- Not sure about the following ---------------
+//   // let noteId = req.params.id.toString();
+
+//   // let newData = data.filter( note => note.id.toString() !== noteId );
+
+//   // fs.writeFileSync('../db/db.json', JSON.stringify(newData));
+
+//   // response.json(newData);
+
+//   // --------------------------------------------------------------
+// });
 
 module.exports = router;
