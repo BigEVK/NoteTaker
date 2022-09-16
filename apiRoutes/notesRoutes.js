@@ -8,6 +8,9 @@ router.get('/notes', (req, res) => {
 //         results = filterByQuery(req.query, results);
 //     }
 //     res.json(results);
+
+// console.log(notes);
+
     fs.readFile('./db/db.json', 'utf8', function(err, data){
        
         // for (var i = 0; i < data.length; i++){
